@@ -16,7 +16,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="23dp"
         android:layout_marginTop="14dp"
-        android:text="What you gonna try?"
+        android:text="Name"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
@@ -34,7 +34,7 @@
         android:layout_alignLeft="@+id/editText1"
         android:layout_below="@+id/editText1"
         android:layout_marginTop="21dp"
-        android:text="Why?"
+        android:text="Description"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
@@ -54,9 +54,9 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textView2"
+        android:layout_alignLeft="@+id/editText2"
         android:layout_below="@+id/editText2"
-        android:layout_marginTop="105dp"
+        android:layout_marginTop="103dp"
         android:text="Start" />
 
 </RelativeLayout>
