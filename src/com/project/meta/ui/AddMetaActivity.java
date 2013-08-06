@@ -16,7 +16,8 @@ import com.project.meta.repository.MetaRepository;
 public class AddMetaActivity extends Activity{
 	Meta meta;
 	
-	private Button saveButton, cancelButton;
+	private Button saveButton;
+	private Button cancelButton;
 	private EditText name, description;
 	
 	@Override
@@ -27,6 +28,7 @@ public class AddMetaActivity extends Activity{
 		name = (EditText) findViewById(R.id.editText1);
         description = (EditText) findViewById(R.id.editText2);
         saveButton = (Button) findViewById(R.id.btnSave);
+        cancelButton = (Button) findViewById(R.id.btnCancel);
         saveButton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -50,8 +52,10 @@ public class AddMetaActivity extends Activity{
     	
     	meta = new Meta(name.getText().toString(), description.getText().toString());
     	
-    	if(!meta.getName().isEmpty()) {
-       		MetaRepository.getInstance(AddMetaActivity.this).addMeta(meta);
+    	if(meta.getName().isEmpty()) {
+    		Toast.makeText(this, "Invalid values!", Toast.LENGTH_LONG).show();
+    	} else {    		
+    		MetaRepository.getInstance(AddMetaActivity.this).addMeta(meta);
     		Toast.makeText(this, "New Meta saved!", Toast.LENGTH_LONG).show();
     		
     		Intent intent = new Intent(this, ListMetasActivity.class);
@@ -59,8 +63,6 @@ public class AddMetaActivity extends Activity{
     		
     		name.setText("Name");
     		description.setText("Description");
-    	} else {
-    		Toast.makeText(this, "Meta name can't be blank!", Toast.LENGTH_LONG).show();
     	}
     }
 }
