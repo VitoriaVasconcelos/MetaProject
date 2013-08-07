@@ -11,5 +11,8 @@
     <string name="description_field">Description</string>
     <string name="save_meta_button">Save</string>
     <string name="cancel_meta_button">Cancel</string>
+    <string name="addPath">Add Path</string>
+    <string name="origin">Origin:</string>
+    <string name="destination">Destination:</string>
 
 </resources>

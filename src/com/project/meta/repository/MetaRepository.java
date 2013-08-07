@@ -18,7 +18,7 @@ public class MetaRepository {
 	private static Context mContext;
 	private static final String DATABASE_NAME = "metas_database";
 	public static final String TABLE_NAME = "metas";
-	private static final int DATABASE_VERSION = 1;
+	private static final int DATABASE_VERSION = 2;
 	protected SQLiteDatabase db;
 	private DatabaseHandler dbHelper;
 	
@@ -33,7 +33,7 @@ public class MetaRepository {
 			closeDatabase();
 				
 			dbHelper = new DatabaseHandler(mContext, DATABASE_NAME, DATABASE_VERSION,
-					MetaBaseHelper.SCRIPT_DATABASE_CREATE, MetaBaseHelper.SCRIPT_DATABASE_DELETE);
+					MetaBaseHelper.SCRIPT_DATABASE_CREATE, MetaBaseHelper.SCRIPT_DATABASE_UPDATE);
 			db = dbHelper.getWritableDatabase();
 			
 			//TODO fazer uma classe de exceção para a gente
@@ -65,6 +65,8 @@ public class MetaRepository {
 		ContentValues values = new ContentValues();
 		values.put(MetaBaseHelper.NAME, meta.getName());
 		values.put(MetaBaseHelper.DESCRIPTION, meta.getDescription()); 
+		values.put(MetaBaseHelper.ORIGIN, meta.getOrigin());
+		values.put(MetaBaseHelper.DESTINATION, meta.getDestination());
 
 		try {
 			db.insert(TABLE_NAME, null, values);
@@ -84,7 +86,11 @@ public class MetaRepository {
 				int idIndex = cursor.getColumnIndex(MetaBaseHelper._ID);
 				int nameIndex = cursor.getColumnIndex(MetaBaseHelper.NAME);
 				int descriptionIndex = cursor.getColumnIndex(MetaBaseHelper.DESCRIPTION);
+				int originIndex = cursor.getColumnIndex(MetaBaseHelper.ORIGIN);
+				int destinationIndex = cursor.getColumnIndex(MetaBaseHelper.DESTINATION);
 				meta = new Meta(cursor.getInt(idIndex), cursor.getString(nameIndex), cursor.getString(descriptionIndex));
+				meta.setOrigin(cursor.getString(originIndex));
+				meta.setDestination(cursor.getString(destinationIndex));
 			}
 		} catch (SQLException se) {
 			se.printStackTrace();
@@ -104,12 +110,16 @@ public class MetaRepository {
 				int idIndex = cursor.getColumnIndex(MetaBaseHelper._ID);
 				int nameIndex = cursor.getColumnIndex(MetaBaseHelper.NAME);
 				int descriptionIndex = cursor.getColumnIndex(MetaBaseHelper.DESCRIPTION);
+				int originIndex = cursor.getColumnIndex(MetaBaseHelper.ORIGIN);
+				int destinationIndex = cursor.getColumnIndex(MetaBaseHelper.DESTINATION);
 				
 				do {
 					Meta meta = new Meta();
 					meta.setID(cursor.getInt(idIndex));
 					meta.setName(cursor.getString(nameIndex));
 					meta.setDescription(cursor.getString(descriptionIndex));
+					meta.setOrigin(cursor.getString(originIndex));
+					meta.setDestination(cursor.getString(destinationIndex));
 
 					metaList.add(meta);
 				} while (cursor.moveToNext());
@@ -126,6 +136,8 @@ public class MetaRepository {
 		ContentValues values = new ContentValues();
 		values.put(MetaBaseHelper.NAME, meta.getName());
 		values.put(MetaBaseHelper.DESCRIPTION, meta.getDescription());
+		values.put(MetaBaseHelper.ORIGIN, meta.getOrigin());
+		values.put(MetaBaseHelper.DESTINATION, meta.getDestination());
 		int rowsAffected = 0;
 
 		try {

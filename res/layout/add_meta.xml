@@ -19,6 +19,50 @@
         android:text="@string/description_field"
         android:ems="10"
         android:inputType="textMultiLine" />
+
+    <CheckBox
+        android:id="@+id/checkAddPath"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/addPath" />
+
+    <LinearLayout
+        android:id="@+id/contentPath"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="invisible" >
+		
+        <TextView 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/origin"/>
+        
+        <EditText
+            android:id="@+id/editTextOrigin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text">
+
+            <requestFocus />
+        </EditText>
+
+        <TextView 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/destination"/>
+        <EditText
+            android:id="@+id/editTextDestination"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text">
+
+            <requestFocus />
+        </EditText>
+
+    </LinearLayout>
     
     <Button android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/save_meta_button" android:id="@+id/btnSave"/>
     <Button android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/cancel_meta_button" android:id="@+id/btnCancel"/>

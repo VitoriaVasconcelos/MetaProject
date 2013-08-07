@@ -9,6 +9,8 @@ public class Meta implements Serializable{
 	private int _id;
 	private String _name;
 	private String _description;
+	private String _origin;
+	private String _destination;
 	
 	public Meta(){
 		
@@ -47,5 +49,21 @@ public class Meta implements Serializable{
 	
 	public void setDescription(String description){
 		this._description = description;
+	}
+
+	public String getOrigin() {
+		return _origin;
+	}
+
+	public void setOrigin(String _origin) {
+		this._origin = _origin;
+	}
+
+	public String getDestination() {
+		return _destination;
+	}
+
+	public void setDestination(String _destination) {
+		this._destination = _destination;
 	}
 }

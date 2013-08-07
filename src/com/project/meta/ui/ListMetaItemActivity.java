@@ -1,13 +1,12 @@
 package com.project.meta.ui;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import com.project.meta.R;
 import com.project.meta.model.Meta;
 
-public class ListMetaItemActivity extends Activity{
+public class ListMetaItemActivity extends android.support.v4.app.FragmentActivity{
 	Meta meta;
 	TextView textName;
 	TextView textDescription;
@@ -25,6 +24,12 @@ public class ListMetaItemActivity extends Activity{
 			
 			textName.setText(meta.getName());
 			textDescription.setText(meta.getDescription());
+			
+			if(meta.getOrigin() != null && !meta.getOrigin().isEmpty()) {
+//				SupportMapFragment mapFragment = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.mapFragment);
+//				GoogleMap map = mapFragment.getMap();
+				
+			}
 		}
 	}
 

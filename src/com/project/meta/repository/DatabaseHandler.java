@@ -7,12 +7,12 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DatabaseHandler extends SQLiteOpenHelper{
 
 	private String scriptSQLCreate;
-	private String scriptSQLDelete;
+	private String scriptSQLUpdate;
 	
-	public DatabaseHandler(Context context, String nomeBanco, int versaoBanco, String scriptSQLCreate, String scriptSQLDelete) {
+	public DatabaseHandler(Context context, String nomeBanco, int versaoBanco, String scriptSQLCreate, String scriptSQLUpdate) {
 		super(context, nomeBanco, null, versaoBanco);
 		this.scriptSQLCreate = scriptSQLCreate;
-		this.scriptSQLDelete = scriptSQLDelete;
+		this.scriptSQLUpdate = scriptSQLUpdate;
 	}
 	
 	@Override
@@ -22,8 +22,11 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		db.execSQL(scriptSQLDelete);
-		onCreate(db);
+		if (oldVersion < 2) {
+	        db.execSQL(scriptSQLUpdate);
+	    }
+//		db.execsql(scriptsqldelete);
+//		oncreate(db);
 		
 	}
 
