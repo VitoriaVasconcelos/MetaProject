@@ -9,6 +9,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -23,7 +24,6 @@ public class ListMetaItemActivity extends android.support.v4.app.FragmentActivit
 	Meta meta;
 	TextView textName;
 	TextView textDescription;
-	private SupportMapFragment mapFragment;
 	GoogleMap map;
 	
 	@Override
@@ -39,25 +39,17 @@ public class ListMetaItemActivity extends android.support.v4.app.FragmentActivit
 			
 			textName.setText(meta.getName());
 			textDescription.setText(meta.getDescription());
-			
+			map = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapFragment)).getMap();
 			if(meta.getOrigin() != null && !meta.getOrigin().isEmpty()) {
-				mapFragment = (SupportMapFragment)getSupportFragmentManager().findFragmentByTag("tag");
-				if(mapFragment != null) {
-					mapFragment = SupportMapFragment.newInstance();
-					android.support.v4.app.FragmentTransaction t = getSupportFragmentManager().beginTransaction();
-					t.add(R.id.mapFragment, mapFragment, "tag");
-					t.commit();
-					
-				}
+				traceRouter();
 			}
 		}
 	}
 	
-	protected void onResume() {
-		super.onResume();
-		if(map == null && mapFragment!= null) {
+	protected void traceRouter() {
+		if(map == null) {
 			try {
-				map = mapFragment.getMap();
+				
 				Geocoder gc = new Geocoder(this, new Locale("pt", "BR"));
 				List<Address> listOrigin = gc.getFromLocationName(meta.getOrigin(), 1);
 				List<Address> listDestination = gc.getFromLocationName(meta.getDestination(), 1);
@@ -83,5 +75,11 @@ public class ListMetaItemActivity extends android.support.v4.app.FragmentActivit
 		map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
 		map.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 17.0f));
 	}
+	
+//	@Override
+//	  public boolean onCreateOptionsMenu(Menu menu) {
+//	    getMenuInflater().inflate(R.menu., menu);
+//	    return true;
+//	  }
 
 }

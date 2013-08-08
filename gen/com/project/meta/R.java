@@ -210,6 +210,7 @@ containing a value of this type.
         public static final int add_meta=0x7f030001;
         public static final int list_meta_item=0x7f030002;
         public static final int list_metas=0x7f030003;
+        public static final int teste=0x7f030004;
     }
     public static final class menu {
         public static final int main=0x7f090000;
@@ -219,29 +220,15 @@ containing a value of this type.
         public static final int addPath=0x7f06001f;
         public static final int add_meta_button=0x7f060019;
         public static final int app_name=0x7f060015;
-        /**   Title for notification shown when GooglePlayServices needs to be
-        enabled for a application to work. [CHAR LIMIT=70] 
+        /**   Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=70] 
          */
-        public static final int auth_client_needs_enabling_title=0x7f060010;
-        /**   Title for notification shown when GooglePlayServices needs to be
-        installed for a application to work. [CHAR LIMIT=70] 
-         */
-        public static final int auth_client_needs_installation_title=0x7f060011;
-        /**   Title for notification shown when GooglePlayServices needs to be
-        udpated for a application to work. [CHAR LIMIT=70] 
-         */
-        public static final int auth_client_needs_update_title=0x7f060012;
+        public static final int auth_client_availability_notification_title=0x7f06000f;
         /**   Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=42] 
          */
-        public static final int auth_client_play_services_err_notification_msg=0x7f060013;
+        public static final int auth_client_play_services_err_notification_msg=0x7f060010;
         /**   Requested by string saying which app requested the notification. [CHAR LIMIT=42] 
          */
-        public static final int auth_client_requested_by_msg=0x7f060014;
-        /**   Title for notification shown when a bad version of GooglePlayServices
-        has been installed and needs correction for an application to work.
-        [CHAR LIMIT=70] 
-         */
-        public static final int auth_client_using_bad_version_title=0x7f06000f;
+        public static final int auth_client_requested_by_msg=0x7f060011;
         public static final int cancel_meta_button=0x7f06001e;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
@@ -302,6 +289,17 @@ containing a value of this type.
         public static final int destination=0x7f060021;
         public static final int hello_world=0x7f060017;
         public static final int list_meta_button=0x7f06001a;
+        /**  Location client code resources (prefix with location_client) 
+
+        Begin strings for location.reporting
+    
+
+        Some InactiveReason names.  See more in OneUp/package/location/res/values/strings.xml
+    
+         */
+        public static final int location_client_ulr_inactive_age_under_13=0x7f060012;
+        public static final int location_client_ulr_inactive_age_unknown=0x7f060013;
+        public static final int location_client_ulr_inactive_unknown_restriction=0x7f060014;
         public static final int logo_meta=0x7f060018;
         public static final int name_field=0x7f06001b;
         public static final int origin=0x7f060020;
