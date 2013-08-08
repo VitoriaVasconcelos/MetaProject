@@ -81,7 +81,7 @@ public class AddMetaActivity extends Activity{
     	}
     	
     	if(destination != null && !destination.getText().toString().trim().isEmpty()) {
-    		this.meta.setOrigin(destination.getText().toString());
+    		this.meta.setDestination(destination.getText().toString());
     	}
     	
     	if(meta.getName().isEmpty()) {

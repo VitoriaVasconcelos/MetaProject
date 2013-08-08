@@ -8,6 +8,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 
 import com.project.meta.model.Meta;
 import com.project.meta.model.MetaBaseHelper;
@@ -18,7 +19,7 @@ public class MetaRepository {
 	private static Context mContext;
 	private static final String DATABASE_NAME = "metas_database";
 	public static final String TABLE_NAME = "metas";
-	private static final int DATABASE_VERSION = 2;
+	private static final int DATABASE_VERSION = 6;
 	protected SQLiteDatabase db;
 	private DatabaseHandler dbHelper;
 	
@@ -33,7 +34,7 @@ public class MetaRepository {
 			closeDatabase();
 				
 			dbHelper = new DatabaseHandler(mContext, DATABASE_NAME, DATABASE_VERSION,
-					MetaBaseHelper.SCRIPT_DATABASE_CREATE, MetaBaseHelper.SCRIPT_DATABASE_UPDATE);
+					MetaBaseHelper.SCRIPT_DATABASE_CREATE, MetaBaseHelper.SCRIPT_DATABASE_DELETE);
 			db = dbHelper.getWritableDatabase();
 			
 			//TODO fazer uma classe de exceção para a gente
@@ -70,7 +71,7 @@ public class MetaRepository {
 
 		try {
 			db.insert(TABLE_NAME, null, values);
-		} catch(SQLException se) {
+		} catch(SQLiteException se) {
 			se.printStackTrace();
 			//TODO Colocar no log uma classe de exceção nossa
 		}

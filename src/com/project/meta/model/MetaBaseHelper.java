@@ -14,9 +14,9 @@ public class MetaBaseHelper implements BaseColumns{
 		return columns;
 	}
 	
-	public static String SCRIPT_DATABASE_CREATE = "CREATE TABLE metas ( _id integer primary key autoincrement, name text not null, description text);";  
+	public static String SCRIPT_DATABASE_CREATE = "CREATE TABLE metas ( _id integer primary key autoincrement, name text not null, description text, origin text, destination text);";  
 	
-//	public static  String SCRIPT_DATABASE_DELETE = "DROP TABLE IF EXISTS metas";
+	public static  String SCRIPT_DATABASE_DELETE = "DROP TABLE IF EXISTS metas";
 	public static  String SCRIPT_DATABASE_UPDATE = "ALTER TABLE metas ADD COLUMN origin text, destination text;";
 	
 }
