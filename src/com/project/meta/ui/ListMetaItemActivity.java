@@ -9,6 +9,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.widget.TextView;
 
@@ -18,9 +19,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.project.meta.R;
 import com.project.meta.model.Meta;
-//import com.google.android.gms.maps.MapFragment;
 
-public class ListMetaItemActivity extends android.support.v4.app.FragmentActivity{
+public class ListMetaItemActivity extends FragmentActivity {
 	Meta meta;
 	TextView textName;
 	TextView textDescription;
@@ -39,10 +39,11 @@ public class ListMetaItemActivity extends android.support.v4.app.FragmentActivit
 			
 			textName.setText(meta.getName());
 			textDescription.setText(meta.getDescription());
-			map = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapFragment)).getMap();
-			if(meta.getOrigin() != null && !meta.getOrigin().isEmpty()) {
-				traceRouter();
-			}
+			startActivity(new Intent(this, TesteActivity.class));
+//			map = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapFragment)).getMap();
+//			if(meta.getOrigin() != null && !meta.getOrigin().isEmpty()) {
+//				traceRouter();
+//			}
 		}
 	}
 	

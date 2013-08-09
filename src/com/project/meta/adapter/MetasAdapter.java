@@ -58,7 +58,7 @@ public class MetasAdapter extends BaseAdapter{
 		textName = (TextView) ll.findViewById(R.id.text_name);
 		textDescription = (TextView) ll.findViewById(R.id.text_description);
 		textOrigin = (TextView) ll.findViewById(R.id.text_origin);
-		textDescription = (TextView) ll.findViewById(R.id.text_destination);
+		textDestination = (TextView) ll.findViewById(R.id.text_destination);
 		
 		textName.setText(metas.get(position).getName());
 		textDescription.setText(metas.get(position).getDescription());
@@ -66,7 +66,7 @@ public class MetasAdapter extends BaseAdapter{
 			textOrigin.setText(metas.get(position).getOrigin());
 		}
 		if(metas.get(position).getDestination() != null) {
-			textOrigin.setText(metas.get(position).getDestination());
+			textDestination.setText(metas.get(position).getDestination());
 		}
 
 		ll.setTag(metas.get(position));
