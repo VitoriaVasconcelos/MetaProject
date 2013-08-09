@@ -182,11 +182,12 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020018;
     }
     public static final class id {
-        public static final int action_settings=0x7f050015;
+        public static final int action_settings=0x7f050016;
         public static final int btnAdd=0x7f050005;
         public static final int btnCancel=0x7f05000e;
         public static final int btnList=0x7f050006;
         public static final int btnSave=0x7f05000d;
+        public static final int buttonRoute=0x7f050013;
         public static final int checkAddPath=0x7f050009;
         public static final int contentPath=0x7f05000a;
         public static final int editText1=0x7f050007;
@@ -194,8 +195,8 @@ containing a value of this type.
         public static final int editTextDestination=0x7f05000c;
         public static final int editTextOrigin=0x7f05000b;
         public static final int hybrid=0x7f050004;
-        public static final int lv_metas=0x7f050013;
-        public static final int map=0x7f050014;
+        public static final int lv_metas=0x7f050014;
+        public static final int map=0x7f050015;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
         public static final int satellite=0x7f050002;
@@ -210,26 +211,40 @@ containing a value of this type.
         public static final int add_meta=0x7f030001;
         public static final int list_meta_item=0x7f030002;
         public static final int list_metas=0x7f030003;
-        public static final int teste=0x7f030004;
+        public static final int map=0x7f030004;
     }
     public static final class menu {
         public static final int main=0x7f090000;
     }
     public static final class string {
         public static final int action_settings=0x7f060016;
-        public static final int addPath=0x7f06001f;
+        public static final int addPath=0x7f060021;
         public static final int add_meta_button=0x7f060019;
         public static final int app_name=0x7f060015;
-        /**   Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=70] 
+        /**   Title for notification shown when GooglePlayServices needs to be
+        enabled for a application to work. [CHAR LIMIT=70] 
          */
-        public static final int auth_client_availability_notification_title=0x7f06000f;
+        public static final int auth_client_needs_enabling_title=0x7f060010;
+        /**   Title for notification shown when GooglePlayServices needs to be
+        installed for a application to work. [CHAR LIMIT=70] 
+         */
+        public static final int auth_client_needs_installation_title=0x7f060011;
+        /**   Title for notification shown when GooglePlayServices needs to be
+        udpated for a application to work. [CHAR LIMIT=70] 
+         */
+        public static final int auth_client_needs_update_title=0x7f060012;
         /**   Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=42] 
          */
-        public static final int auth_client_play_services_err_notification_msg=0x7f060010;
+        public static final int auth_client_play_services_err_notification_msg=0x7f060013;
         /**   Requested by string saying which app requested the notification. [CHAR LIMIT=42] 
          */
-        public static final int auth_client_requested_by_msg=0x7f060011;
-        public static final int cancel_meta_button=0x7f06001e;
+        public static final int auth_client_requested_by_msg=0x7f060014;
+        /**   Title for notification shown when a bad version of GooglePlayServices
+        has been installed and needs correction for an application to work.
+        [CHAR LIMIT=70] 
+         */
+        public static final int auth_client_using_bad_version_title=0x7f06000f;
+        public static final int cancel_meta_button=0x7f060020;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
         can enable it [CHAR LIMIT=40] 
@@ -285,25 +300,17 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static final int common_signin_button_text_long=0x7f06000e;
+        public static final int description=0x7f06001e;
         public static final int description_field=0x7f06001c;
-        public static final int destination=0x7f060021;
+        public static final int destination=0x7f060023;
         public static final int hello_world=0x7f060017;
         public static final int list_meta_button=0x7f06001a;
-        /**  Location client code resources (prefix with location_client) 
-
-        Begin strings for location.reporting
-    
-
-        Some InactiveReason names.  See more in OneUp/package/location/res/values/strings.xml
-    
-         */
-        public static final int location_client_ulr_inactive_age_under_13=0x7f060012;
-        public static final int location_client_ulr_inactive_age_unknown=0x7f060013;
-        public static final int location_client_ulr_inactive_unknown_restriction=0x7f060014;
         public static final int logo_meta=0x7f060018;
+        public static final int name=0x7f06001d;
         public static final int name_field=0x7f06001b;
-        public static final int origin=0x7f060020;
-        public static final int save_meta_button=0x7f06001d;
+        public static final int origin=0x7f060022;
+        public static final int routeButton=0x7f060024;
+        public static final int save_meta_button=0x7f06001f;
     }
     public static final class style {
         /** 
